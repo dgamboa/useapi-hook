@@ -21,7 +21,7 @@ There are two files that make the hook work and a third that allows for authenti
 
 ### Using the Hook
 1. From your component, import this hook and any api functions you might need.
-    i. To import every action along with the hook, use this:
+    1. To import every action along with the hook, use this:
       ```jsx
         import { useApi } from "./utils/hooks/useApi";
         import {
@@ -32,13 +32,13 @@ There are two files that make the hook work and a third that allows for authenti
           putTask } from "./utils/api";
       ```
 2. The hook takes a callback function. That callback function is an api function with arguments per 2i below:
-    i. Here are the HTTP Request options:
+    1. Here are the HTTP Request options:
         - `fetchResource(resource)`
         - `postResource(resource, action, credentials)`
         - `fetchTasks(id)`
         - `postTask(task)`
         - `putTask(task, id)`
-    i. Some examples for using the hook:
+    1. Some examples for using the hook:
         - For getting all admins in the database:
           ```jsx
             const [allAdmins, getAllAdmins] = useApi(() => fetchResource("admin"));

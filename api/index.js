@@ -1,7 +1,7 @@
 import axios from "axios";
 import axiosWithAuth from "./../axiosWithAuth";
 
-const baseURL = 'https://cloud-schoolz.herokuapp.com/api';
+const baseURL = 'https://<your-domain-here>/api';
 
 // Handles GET Requests
 // Resource can be: admin, students, volunteers, tasks

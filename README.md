@@ -2,19 +2,16 @@
 A custom hook to abstract API calls in React
 
 ## Overview
-The useApi custom hook allows the app to set variables that depend on API calls:
-1. by setting the hook in one line and passing in a predefined API function
-1. while retaining control on when the call gets made
-1. and without having to write asynchronous code
+The useApi custom hook allows the app to set variables that depend on API calls by setting the hook in one line and passing in a predefined API function while retaining control on when the call gets made and without having to write asynchronous code.
 
 This streamlines the development process by allowing the team to focus on building their respective components without having to worry about API responses and promises, error handling, or nuances in API call implementations.
 
 ## Getting Started
-*Before we dive into how the hook works, a quick heads up. This implementation includes both the general hook architecture as well as an embedded API implementation in order to showcase how resources can be accessed. It also includes an Authentication requirement that can be easily stripped out if not needed.*
+*Before we dive into how the hook works, a quick heads up. This implementation includes both the general hook architecture as well as an embedded API implementation in order to showcase how resources can be accessed. It also includes an authentication implementation that can be easily stripped out if not needed.*
 
 ### Dependencies
-* React
-* axios
+* [React](https://reactjs.org/)
+* [axios](https://reactjs.org/)
 
 ### Architecture
 There are two files that make the hook work and a third that allows for authenticated requests.

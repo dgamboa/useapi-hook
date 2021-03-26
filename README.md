@@ -21,45 +21,45 @@ There are two files that make the hook work and a third that allows for authenti
 
 ### Using the Hook
 1. From your component, import this hook and any api functions you might need.
-  a. To import every action along with the hook, use this:
-    ```jsx
-      import { useApi } from "./utils/hooks/useApi";
-      import {
-        fetchResource,
-        postResource,
-        fetchTasks,
-        postTask,
-        putTask } from "./utils/api";
-    ```
-2. The hook takes a callback function. That callback function is an api function with arguments per 2a below:
-  a. Here are the HTTP Request options:
-       - `fetchResource(resource)`
-       - `postResource(resource, action, credentials)`
-       - `fetchTasks(id)`
-       - `postTask(task)`
-       - `putTask(task, id)`
-  b. Some examples for using the hook:
-       - For getting all admins in the database:
-        ```jsx
-          const [allAdmins, getAllAdmins] = useApi(() => fetchResource("admin"));
-        ```
-       - For registering a new admin:
-        ```jsx
-          const adminToRegister = {
-            name: "Example",
-            email: "example@test.com",
-            password: "password"
-          };
-          const [newAdmin, createNewAdmin] = useApi(() => postResource("admin", "register", adminToRegister));
-        ``` 
-       - For logging in an admin:
-        ```jsx
-          const adminToLogIn = {
-            email: "hook@test.com",
-            password: "password"
-          };
-          const [logIn, executeLogIn] = useApi(() => postResource("admin", "login", adminToLogIn));
-        ```
+    i. To import every action along with the hook, use this:
+      ```jsx
+        import { useApi } from "./utils/hooks/useApi";
+        import {
+          fetchResource,
+          postResource,
+          fetchTasks,
+          postTask,
+          putTask } from "./utils/api";
+      ```
+2. The hook takes a callback function. That callback function is an api function with arguments per 2i below:
+    i. Here are the HTTP Request options:
+        - `fetchResource(resource)`
+        - `postResource(resource, action, credentials)`
+        - `fetchTasks(id)`
+        - `postTask(task)`
+        - `putTask(task, id)`
+    i. Some examples for using the hook:
+        - For getting all admins in the database:
+          ```jsx
+            const [allAdmins, getAllAdmins] = useApi(() => fetchResource("admin"));
+          ```
+        - For registering a new admin:
+          ```jsx
+            const adminToRegister = {
+              name: "Example",
+              email: "example@test.com",
+              password: "password"
+            };
+            const [newAdmin, createNewAdmin] = useApi(() => postResource("admin", "register", adminToRegister));
+          ``` 
+        - For logging in an admin:
+          ```jsx
+            const adminToLogIn = {
+              email: "hook@test.com",
+              password: "password"
+            };
+            const [logIn, executeLogIn] = useApi(() => postResource("admin", "login", adminToLogIn));
+          ```
 3. Once the hook is set up, you can call the setter function in your code and your designated response variable will be set with the API response.
 4. Then you can use the variable in your component as needed.
 

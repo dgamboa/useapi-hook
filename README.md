@@ -20,7 +20,7 @@ There are two files that make the hook work and a third that allows for authenti
 1. `axiosWithAuth.js`: This file includes boilerplate for incorporating tokens into requests that require authentication. It can be adjusted for using bearer tokens or deleted when using sessions with cookies.
 
 ### Using the Hook
-1. From your component, import this hook and any api functions you might need.
+1. From your component, import the hook and any api functions you might need.
     1. To import every action along with the hook, use this:
       ```jsx
         import { useApi } from "./utils/hooks/useApi";
@@ -61,6 +61,25 @@ There are two files that make the hook work and a third that allows for authenti
             const [logIn, executeLogIn] = useApi(() => postResource("admin", "login", adminToLogIn));
           ```
 3. Once the hook is set up, you can call the setter function in your code and your designated response variable will be set with the API response.
+    1. An example of using the `useEffect` hook to set a list of volunteers with the `useApi` hook when the component mounts:
+      ```jsx
+        import { useApi } from '../../utils/hooks/useApi';
+        import { fetchResource } from '../../utils/api';
+
+        function StudentLandingPage() {
+          const [volunteersResponse, setVolunteersResponse] = useApi(() => fetchResource("volunteers"));
+
+          useEffect(() => {
+            setVolunteersResponse();
+          }, []);
+
+          return (
+            <div className:"container">
+              <p>Now that volunteersResponse is set, format it and display it!</p>
+            </div>
+          )
+        }
+      ```
 4. Then you can use the variable in your component as needed.
 
 ## Feedback

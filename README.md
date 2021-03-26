@@ -20,35 +20,48 @@ There are two files that make the hook work and a third that allows for authenti
 1. `axiosWithAuth.js`: This file includes boilerplate for incorporating tokens into requests that require authentication. It can be adjusted for using bearer tokens or deleted when using sessions with cookies.
 
 ### Using the Hook
-1. From your component, import this hook and any api functions you might need
-  1. To import every action along with the hook, use this:
-        import {useApi} from "./utils/hooks/useApi";
-        import {fetchResource, postResource, fetchTasks, postTask, putTask} from "./utils/api";
-1. The hook takes a callback function -> that callback function is an api function with arguments per 2a below
-  1. Here are the HTTP Request options:
-       - fetchResource(resource)
-       - postResource(resource, action, credentials)
-       - fetchTasks(id)
-       - postTask(task)
-       - putTask(task, id)
-  1. Some examples for using the hook:
+1. From your component, import this hook and any api functions you might need.
+  a. To import every action along with the hook, use this:
+    ```jsx
+      import { useApi } from "./utils/hooks/useApi";
+      import {
+        fetchResource,
+        postResource,
+        fetchTasks,
+        postTask,
+        putTask } from "./utils/api";
+    ```
+2. The hook takes a callback function. That callback function is an api function with arguments per 2a below:
+  a. Here are the HTTP Request options:
+       - `fetchResource(resource)`
+       - `postResource(resource, action, credentials)`
+       - `fetchTasks(id)`
+       - `postTask(task)`
+       - `putTask(task, id)`
+  b. Some examples for using the hook:
        - For getting all admins in the database:
-           const [allAdmins, getAllAdmins] = useApi(() => fetchResource("admin"));
+        ```jsx
+          const [allAdmins, getAllAdmins] = useApi(() => fetchResource("admin"));
+        ```
        - For registering a new admin:
-           const adminToRegister = {
-             name: "Example",
-             email: "example@test.com",
-             password: "password"
-           };
-           const [newAdmin, createNewAdmin] = useApi(() => postResource("admin", "register", adminToRegister));
+        ```jsx
+          const adminToRegister = {
+            name: "Example",
+            email: "example@test.com",
+            password: "password"
+          };
+          const [newAdmin, createNewAdmin] = useApi(() => postResource("admin", "register", adminToRegister));
+        ``` 
        - For logging in an admin:
-           const adminToLogIn = {
-             email: "hook@test.com",
-             password: "password"
-           };
-           const [logIn, executeLogIn] = useApi(() => postResource("admin", "login", adminToLogIn));
-1. Once the hook is set up, you can call the setter function in your code and the variable (i.e. slice of state) will be set with the API response
-1. Use the variable in your component as needed
+        ```jsx
+          const adminToLogIn = {
+            email: "hook@test.com",
+            password: "password"
+          };
+          const [logIn, executeLogIn] = useApi(() => postResource("admin", "login", adminToLogIn));
+        ```
+3. Once the hook is set up, you can call the setter function in your code and your designated response variable will be set with the API response.
+4. Then you can use the variable in your component as needed.
 
 ## Feedback
 If you have any feedback, send it along. I'd love to hear it. Thanks for checking out the project.

@@ -62,24 +62,24 @@ There are two files that make the hook work and a third that allows for authenti
           ```
 3. Once the hook is set up, you can call the setter function in your code and your designated response variable will be set with the API response.
     1. An example of using the `useEffect` hook to set a list of volunteers with the `useApi` hook when the component mounts:
-      ```jsx
-        import { useApi } from '../../utils/hooks/useApi';
-        import { fetchResource } from '../../utils/api';
+        ```jsx
+          import { useApi } from '../../utils/hooks/useApi';
+          import { fetchResource } from '../../utils/api';
 
-        function StudentLandingPage() {
-          const [volunteersResponse, setVolunteersResponse] = useApi(() => fetchResource("volunteers"));
+          function StudentLandingPage() {
+            const [volunteersResponse, setVolunteersResponse] = useApi(() => fetchResource("volunteers"));
 
-          useEffect(() => {
-            setVolunteersResponse();
-          }, []);
+            useEffect(() => {
+              setVolunteersResponse();
+            }, []);
 
-          return (
-            <div className:"container">
-              <p>Now that volunteersResponse is set, format it and display it!</p>
-            </div>
-          )
-        }
-      ```
+            return (
+              <div className:"container">
+                <p>Now that volunteersResponse is set, format it and display it!</p>
+              </div>
+            )
+          }
+        ```
 4. Then you can use the variable in your component as needed.
 
 ## Feedback

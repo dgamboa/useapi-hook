@@ -15,7 +15,7 @@ This streamlines the development process by allowing the team to focus on buildi
 
 ### Architecture
 There are two files that make the hook work and a third that allows for authenticated requests.
-1. `hooks/useApi.js`: This is the custom hook. It takes an `apiFunction` as its argument in the form of an anonymous callback. The `useState` sets a `response` object that tracts data, loading status, errors and successful status. It returns the `response` object along with a `fetchMethod` function that, when invoked, triggers the asynchronous API call and sets the `response`.
+1. `hooks/useApi.js`: This is the custom hook. It takes an `apiFunction` as its argument in the form of an anonymous callback. The `useState` sets a `response` object that tracks data, loading status, errors and successful status. It returns the `response` object along with a `fetchMethod` function that, when invoked, triggers the asynchronous API call and sets the `response`.
 1. `api/index.js`: This file includes various functions for asynchronously hitting API endpoints. This file should be customized to fit your needs (i.e. your specific resources, authentication needs and error handling). But the file serves as a great template from which to get started. 
 1. `axiosWithAuth.js`: This file includes boilerplate for incorporating tokens into requests that require authentication. It can be adjusted for using bearer tokens or deleted when using sessions with cookies.
 
